@@ -1,6 +1,7 @@
 package ru.job4j.parser
 
-data class Query(val columns: List<String>, val from: List<Source>,
+data class Query(val columns: List<String> = emptyList(),
+                 val from: List<Source> = emptyList(),
                  val joins: List<Join> = emptyList(),
                  val whereClauses: List<WhereClause> = emptyList(),
                  val groupBy: List<String> = emptyList(),

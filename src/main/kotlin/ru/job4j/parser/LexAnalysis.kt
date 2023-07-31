@@ -10,14 +10,14 @@ class LexAnalysis(expr: String) {
             .forEach { tokens.add(it) }
     }
 
-    fun data(startAt: List<String>, endAt: List<String>) : List<String> {
+    fun range(pair : Pair<String, List<String>>) : List<String> {
         var posStartAt = -1
         var posEndAt = tokens.size
         for ((pos, value) in tokens.withIndex()) {
-            if (posStartAt == -1 && startAt.contains(value)) {
+            if (posStartAt == -1 && pair.first == value) {
                 posStartAt = pos
             }
-            if (endAt.contains(value)) {
+            if (pair.second.contains(value)) {
                 posEndAt = pos
                 break
             }
